@@ -2,17 +2,18 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiSearchAlt } from "react-icons/bi";
+import styles from './Navbar.module.css'
 
 const Navbar = () => {
   const [search, setSearch] = useState();
 
   return (
-    <nav>
-      <div>
+    <nav className={styles.nav__container}>
+      <div className={styles.nav__container_primary}>
         <div>
           <h2>Anime.Dev</h2>
         </div>
-        <div>
+        <div className={styles.nav__primary_links}>
           <ul>
             <li>
               <Link to="/">Início</Link>

@@ -1,0 +1,66 @@
+.nav__container {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-white);
+  height: 250px;
+  
+}
+
+.nav__container_primary {
+  display: flex;
+  height: 50%;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__container_primary h2 {
+  color: var(--color-blue);
+}
+
+.nav__primary_links {
+  display: flex;
+  align-items: center;
+  gap: 4.5rem;
+}
+
+.nav__primary_links ul {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  list-style: none;
+  padding: 1rem;
+}
+
+.nav__primary_links li a {
+  text-decoration: none;
+  color: var(--color-white);
+  padding: 0.5rem;
+}
+
+.nav__primary_links form {
+  display: flex;
+  flex-direction: row;
+  border-radius: 1rem;
+  background-color: var(--color-dark-200);
+  justify-content: space-between;
+}
+
+.nav__primary_links form input {
+  padding: 1rem;
+  color: var(--color-white);
+  border: transparent;
+  background-color: transparent;
+}
+
+.nav__primary_links form button {
+  padding: 1rem;
+  color: var(--color-white);
+  border: transparent;
+  background-color: transparent;
+}
+
+.nav__primary_links svg {
+  
+}

@@ -1,5 +1,7 @@
 .Container {
   text-align: center;
+  width: 65%;
+  margin: 0 auto;
 }
 
 

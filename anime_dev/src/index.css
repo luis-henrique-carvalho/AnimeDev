@@ -5,3 +5,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-blue: #00A3FF;
+  --color-white: #F9F9F9;
+  --color-gray: #BFBFBF;
+  --color-dark: #06090F;
+  --color-dark-200:  #151B26;
+}
+
+body {
+  background-color: #06090F;
+}
