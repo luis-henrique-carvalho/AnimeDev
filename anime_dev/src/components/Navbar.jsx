@@ -3,15 +3,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiSearchAlt } from "react-icons/bi";
 import styles from './Navbar.module.css'
+import SecundaryNav from "./SecundaryNav";
 
 const Navbar = () => {
   const [search, setSearch] = useState();
 
   return (
-    <nav className={styles.nav__container}>
-      <div className={styles.nav__container_primary}>
+    <header className={styles.nav__container}>
+      <nav className={styles.nav__container_primary}>
         <div>
-          <h2>Anime.Dev</h2>
+          <h1>Anime.Dev</h1>
         </div>
         <div className={styles.nav__primary_links}>
           <ul>
@@ -22,7 +23,7 @@ const Navbar = () => {
               <Link to="/">Lista</Link>
             </li>
             <li>
-              <Link to="/">Gênero</Link>
+              <Link to="/">Gêneros</Link>
             </li>
             <li>
               <Link to="/">Novos Episódios</Link>
@@ -38,9 +39,10 @@ const Navbar = () => {
             <button type="submit"><BiSearchAlt/></button>
           </form>
         </div>
-      </div>
-      <div></div>
-    </nav>
+      </nav>
+      
+      <SecundaryNav/>
+    </header>
   );
 };
 
