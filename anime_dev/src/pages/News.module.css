@@ -36,7 +36,16 @@
   height: 405px;
   padding-left: 50px;
   background-color: rgba(0, 0, 0, 0.487);
+  border: transparent;
+  border-radius: 2rem;
+  transition: 0.5s;
 }
+
+.container__secundary:hover {
+  color: var(--color-dark-200);
+  background-color: rgba(163, 162, 162, 0.411);
+}
+
 
 .container__secundary > div {
   text-align: start;

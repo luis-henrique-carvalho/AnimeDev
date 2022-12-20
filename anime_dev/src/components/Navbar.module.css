@@ -50,8 +50,13 @@
   padding: 0 0.5rem;
   flex-direction: row;
   border-radius: 2rem;
+  border: 1px solid transparent;
   background-color: var(--color-dark-200);
   justify-content: space-around;
+  transition: .5s all ease-out;
+}
+.nav__primary_links form:hover {
+  border: 1px solid var(--color-blue);
 }
 
 .nav__primary_links form input {
@@ -60,11 +65,22 @@
   color: var(--color-white);
   border: transparent;
   background-color: transparent;
+  font-size: 1.2rem;
 }
 
 .nav__primary_links input::placeholder {
   color: var(--color-white);
   font-size: 1.2rem;
+}
+
+.nav__primary_links input:hover::placeholder {
+  color: var(--color-white);
+  font-size: 1.2rem;
+}
+.nav__primary_links input:focus {
+  color: var(--color-blue);
+  border-color: var(--color-blue);
+  outline: none;
 }
 
 
@@ -79,6 +95,13 @@
 .nav__primary_links form button svg{
   width: 2rem;
   height: 2rem;
-
+  transition: all .3s ease-out;
 }
+
+.nav__primary_links form button svg:hover{
+  color: var(--color-blue);
+  /* width: 2.1rem;
+  height: 2.1rem; */
+}
+
 

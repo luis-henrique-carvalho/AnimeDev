@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BiSearchAlt } from "react-icons/bi";
-import styles from './Navbar.module.css'
+import styles from "./Navbar.module.css";
 import SecundaryNav from "./SecundaryNav";
 
 const Navbar = () => {
+  const { pathname } = useLocation();
   const [search, setSearch] = useState();
+  console.log(pathname);
 
   return (
     <header className={styles.nav__container}>
@@ -36,12 +38,13 @@ const Navbar = () => {
               onSubmit={(e) => setSearch(e.target.value)}
               value={search}
             />
-            <button type="submit"><BiSearchAlt/></button>
+            <button type="submit">
+              <BiSearchAlt />
+            </button>
           </form>
         </div>
       </nav>
-      
-      <SecundaryNav/>
+      {pathname === "/" && <SecundaryNav />}
     </header>
   );
 };
