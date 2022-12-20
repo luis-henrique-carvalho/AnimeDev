@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./News.module.css";
-import axios from "axios";
+
 
 
 const News = () => {
