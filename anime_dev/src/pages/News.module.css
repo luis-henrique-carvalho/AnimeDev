@@ -23,6 +23,7 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
+  color: var( --color-gray);
 }
 
 .container__secundary_bg {
@@ -41,10 +42,7 @@
   transition: 0.5s;
 }
 
-.container__secundary:hover {
-  color: var(--color-dark-200);
-  background-color: rgba(163, 162, 162, 0.411);
-}
+
 
 
 .container__secundary > div {
@@ -71,4 +69,10 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 160%;
+  
+}
+
+.container__secundary:hover {
+  color: var(--color-dark-200);
+  background-color: rgba(163, 162, 162, 0.411);
 }

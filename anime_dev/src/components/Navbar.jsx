@@ -14,7 +14,9 @@ const Navbar = () => {
     <header className={styles.nav__container}>
       <nav className={styles.nav__container_primary}>
         <div>
-          <h1>Anime.Dev</h1>
+          <Link to="/">
+            <h1>Anime.Dev</h1>
+          </Link>
         </div>
         <div className={styles.nav__primary_links}>
           <ul>
@@ -44,7 +46,7 @@ const Navbar = () => {
           </form>
         </div>
       </nav>
-      {pathname === "/" && <SecundaryNav />}
+      {pathname === "/" ? (<SecundaryNav />):(<></>) }
     </header>
   );
 };

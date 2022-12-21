@@ -7,7 +7,7 @@ const News = () => {
   return (
     <div className={styles.new__container}>
       <div className={styles.container__primary}>
-        <h1>Ultimas novidades</h1>
+        <h1>Últimas novidades</h1>
         <h2>O que você vai assistir hoje?</h2>
       </div>
       <div className={styles.container__secundary_bg}>
