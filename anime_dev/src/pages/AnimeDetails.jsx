@@ -1,59 +1,12 @@
-
-import axios from "axios";
 import { CardDetails } from "../styles";
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { Util } from "../hooks/Util";
 
 const AnimeDetails = () => {
   const { id } = useParams();
   const url = `https://api.jikan.moe/v4/anime/${id}`;
   const { anime, recommendations } = Util(url);
-
-  console.log(anime)
-
-  // const [anime, setAnime] = useState();
-  // const [pictures, setPictures] = useState([]);
-  // const [recommendations, setRecommendations] = useState([]);
-
-  // const getPictures = async (id) => {
-  //   const url = `https://api.jikan.moe/v4/anime/${id}/pictures`;
-  //   await axios
-  //     .get(url)
-  //     .then((res) => {
-  //       setPictures(res.data.data);
-  //     })
-  //     .catch((err) => {});
-  // };
-
-  // const getRecommendations = async (id) => {
-  //   const url = `https://api.jikan.moe/v4/anime/${id}/recommendations`;
-  //   await axios
-  //     .get(url)
-  //     .then((res) => {
-  //       setRecommendations(res.data.data);
-  //     })
-  //     .catch((err) => {});
-  // };
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     window.scrollTo(0, 0);
-
-  //     await axios
-  //       .get(url)
-  //       .then((res) => {
-  //         const id = res.data.data.mal_id;
-  //         getPictures(id);
-  //         getRecommendations(id);
-  //         setAnime(res.data.data);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   };
-  //   getData()
-  // }, [id]);
-
-  console.log(recommendations);
+  console.log(anime);
 
   return (
     <>
@@ -63,7 +16,7 @@ const AnimeDetails = () => {
             <div className="view__media">
               <h1>{anime.title}</h1>
               <div>
-                <div></div>
+                <img src={anime.images.jpg.large_image_url} alt={anime.title} />
               </div>
             </div>
             <div className="view__aside">
@@ -90,6 +43,38 @@ const AnimeDetails = () => {
                       )}
                     </>
                   ))}
+              </div>
+            </div>
+            {/* fim aside */}
+          </div>
+          <div className="details__container">
+            <div className="details__img">
+              <img src={anime.images.jpg.large_image_url} alt={anime.title} />
+            </div>
+            <div className="details__text">
+              <div className="details__text-title">
+                <div>
+                  <h3>Título :</h3> <span>{anime.title} </span>{" "}
+                </div>
+                <div>
+                  <h3>Estudio :</h3>
+                  {anime.studios.map((studio) => (
+                    <span key={studio.mal_id}>{studio.name} </span>
+                  ))}
+                </div>
+                <div>
+                  <h3>Gênero :</h3>
+                  {anime.genres.map((gen) => (
+                    <span key={gen.mal_id}>{gen.name} </span>
+                  ))}
+                </div>
+                <div>
+                  <h3>Total Episódios :</h3> <span>{anime.episodes} Ep</span>{" "}
+                </div>
+              </div>
+              <div className="details__text-sinopse">
+                <h3>Sinopse</h3>
+                <p>{anime.synopsis}</p>
               </div>
             </div>
           </div>

@@ -19,8 +19,10 @@ export const Util = (url) => {
           console.log(res.data);
           setAnime(res.data.data);
           //functions
-          getRecommendations(id);
-          getPictures(id);
+          if (id !== null) {
+            getRecommendations(id);
+            getPictures(id);
+          }
         })
         .catch((err) => setError(err.message));
     };

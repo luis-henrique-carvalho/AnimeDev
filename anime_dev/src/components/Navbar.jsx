@@ -8,10 +8,14 @@ import SecundaryNav from "./SecundaryNav";
 const Navbar = () => {
   const { pathname } = useLocation();
   const [search, setSearch] = useState();
-  console.log(pathname);
-
   return (
-    <header className={styles.nav__container}>
+    <header
+      className={
+        pathname === "/"
+          ? `${styles.nav__container}`
+          : `${styles.nav__container_tercery}`
+      }
+    >
       <nav className={styles.nav__container_primary}>
         <div>
           <Link to="/">
@@ -46,7 +50,7 @@ const Navbar = () => {
           </form>
         </div>
       </nav>
-      {pathname === "/" ? (<SecundaryNav />):(<></>) }
+      {pathname === "/" ? <SecundaryNav /> : <></>}
     </header>
   );
 };
