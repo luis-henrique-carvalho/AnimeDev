@@ -2,16 +2,19 @@ import { CardDetails } from "../styles";
 import { Link, useParams } from "react-router-dom";
 import { Util } from "../hooks/Util";
 
+import Episodes from "./Episodes";
+
 const AnimeDetails = () => {
   const { id } = useParams();
   const url = `https://api.jikan.moe/v4/anime/${id}`;
   const { anime, recommendations } = Util(url);
+
   console.log(anime);
 
   return (
     <>
       {anime && (
-        <CardDetails imgView={anime.images.jpg.large_image_url}>
+        <CardDetails imgView={anime.trailer.images.maximum_image_url}>
           <div className="view__container">
             <div className="view__media">
               <h1>{anime.title}</h1>
@@ -30,8 +33,7 @@ const AnimeDetails = () => {
                       {id < 4 && (
                         <Link
                           key={rec.entry.mal_id}
-                          to={`/anime/${rec.entry.mal_id}`}
-                        >
+                          to={`/anime/${rec.entry.mal_id}`}>
                           <div>
                             <img src={rec.entry.images.jpg.image_url} alt="" />
                           </div>
@@ -78,6 +80,7 @@ const AnimeDetails = () => {
               </div>
             </div>
           </div>
+          <Episodes uid={id} animeHelp={anime} />
         </CardDetails>
       )}
     </>

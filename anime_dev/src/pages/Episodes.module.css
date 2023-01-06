@@ -1,0 +1,48 @@
+.LastUpdate__container {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-white);
+  margin-top: 40px;
+  min-height: 870px;
+}
+
+.LastUpdate__container > div > h2 {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  text-align: start;
+  margin-bottom: 20px;
+}
+
+.container__cards {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: start;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y:hidden;
+}
+
+.container__cards::-webkit-scrollbar {
+  width: 0.3rem;
+  height: 0.4rem;
+}
+
+.container__cards::-webkit-scrollbar-track {
+  background:  #06090f;
+}
+
+.container__cards::-webkit-scrollbar-thumb {
+  background:  #00a3ff;
+}
+
+/* SUPPORT SCROLLBAR */
+@supports (scrollbar-color: #00a3ff #06090f) {
+  .container__cards {
+    scrollbar-color: #00a3ff #06090f;
+    scrollbar-width: auto;
+  }
+}
+
+
