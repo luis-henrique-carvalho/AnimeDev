@@ -1,13 +1,20 @@
 import React from "react";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BiSearchAlt } from "react-icons/bi";
 import styles from "./Navbar.module.css";
 import SecundaryNav from "./SecundaryNav";
 
 const Navbar = () => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [search, setSearch] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/search?q=" + search);
+  }
+
   return (
     <header
       className={
@@ -37,11 +44,11 @@ const Navbar = () => {
               <Link to="/">Novos Episódios</Link>
             </li>
           </ul>
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Buscar"
-              onSubmit={(e) => setSearch(e.target.value)}
+              onChange={(e) => setSearch(e.target.value)}
               value={search}
             />
             <button type="submit">

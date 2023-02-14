@@ -24,7 +24,7 @@ const AnimeDetails = () => {
             </div>
             <div className="view__aside">
               <div className="asside__titulo">
-                <h2>Mais assistidos</h2>
+                <h2>Recomendações</h2>
               </div>
               <div className="aside_card">
                 {recommendations &&

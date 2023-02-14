@@ -8,8 +8,18 @@ export const Util = (url) => {
   const [error, setError] = useState(null);
   const [pictures, setPictures] = useState(null);
 
+  // deal with memory leak
+  const [cancelled, setCancelled] = useState(false);
+
+  function checkIfIsCancelled() {
+    if (cancelled) {
+      return;
+    }
+  }
+
   useEffect(() => {
     const getData = async (url) => {
+      checkIfIsCancelled();
       window.scrollTo(0, 0);
       await axios
         .get(url)
@@ -28,6 +38,7 @@ export const Util = (url) => {
     };
 
     const getPictures = async (id) => {
+      checkIfIsCancelled();
       let urlLocal = `https://api.jikan.moe/v4/anime/${id}/pictures`;
       await axios
         .get(urlLocal)
@@ -38,6 +49,7 @@ export const Util = (url) => {
     };
 
     const getRecommendations = async (id) => {
+      checkIfIsCancelled();
       let urlLocal = `https://api.jikan.moe/v4/anime/${id}/recommendations`;
       await axios
         .get(urlLocal)
@@ -47,6 +59,13 @@ export const Util = (url) => {
         .catch((err) => setError(err.message));
     };
     getData(url);
+
+    
   }, [url, id]);
+
+  useEffect(() => {
+    return () => setCancelled(true);
+  }, []);
+
   return { anime, recommendations, pictures, error };
 };

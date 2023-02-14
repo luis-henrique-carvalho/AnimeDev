@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 const AnimeCard = ({ anime, animeHelp = null }) => {
   let img = anime.images.jpg.image_url;
   return (
-    <Link to={`anime/${anime.mal_id}`} className={style.card}>
+    <Link to={`../anime/${anime.mal_id}`} className={style.card}>
       {animeHelp ? (
         <>
           <Card img={img}>
             <div className={style.card__image}>
-              <h2>Episodio {animeHelp.mal_id}</h2>
+              <h2>Episodios {animeHelp.mal_id}</h2>
             </div>
           </Card>
           <h2 className={style.card__title}>{animeHelp.title}</h2>
@@ -20,7 +20,7 @@ const AnimeCard = ({ anime, animeHelp = null }) => {
         <>
           <Card img={img}>
             <div className={style.card__image}>
-              <h2>Episodio {anime.episodes}</h2>
+              <h2>Episodios {anime.episodes}</h2>
             </div>
           </Card>
           <h2 className={style.card__title}>{anime.title}</h2>

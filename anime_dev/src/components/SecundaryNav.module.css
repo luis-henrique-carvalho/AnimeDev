@@ -5,7 +5,7 @@
 }
 
 .navbar::-webkit-scrollbar-track {
-  background:  #06090f;
+  background: var(--color-dark-200);
 }
 
 .navbar::-webkit-scrollbar-thumb {
@@ -17,6 +17,7 @@
   .navbar {
     scrollbar-color: #00a3ff #06090f;
     scrollbar-width: auto;
+    
     
   }
 }
@@ -47,11 +48,19 @@
   min-width: 7.5rem;
   height: 2.6rem;
   text-align: center;
-  background: var(--color-dark-200);
-  border: 0.1rem solid var(--color--blue);
+  
+  background-color: transparent;
+  border: 0.1rem solid #151B26;
   border-radius: 100vmax;
   font-size: 1rem;
   line-height: 2.6rem;
   transition: all 0.3s;
   user-select: none;
 }
+
+.navbar button:hover {
+ 
+  background: var(--color-dark-200);
+ 
+}
+
