@@ -22,7 +22,12 @@
   justify-content: center;
 }
 
-.container__cards > button {
+.LastUpdate__button {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.LastUpdate__button  button {
   width: 182px;
   height: 48px;
   color: var(--color-white);
@@ -34,10 +39,8 @@
   transition: 0.5s;
 }
 
-.container__cards > button:hover {
+.LastUpdate__button > button:hover {
   width: 186px;
-
-  
   justify-content: center;
   align-items: center;
   color: var(--color-dark);

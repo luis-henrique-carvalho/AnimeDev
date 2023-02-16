@@ -6,7 +6,7 @@ const Button = ({ value, setSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/search?q=" + value);
+    navigate(`/search?q=${value}`);
   }
   
   return (

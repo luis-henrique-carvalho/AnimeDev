@@ -2,20 +2,28 @@ import AnimeCard from "../components/AnimeCard";
 import styles from "./LastUpdate.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const LastUpdate = () => {
+const AnimeSearch = () => {
   const [animes, setAnimes] = useState([]);
+  let { search } = useLocation();
 
-  const [searchParams] = useSearchParams();
-  
-  const url = `https://api.jikan.moe/v4/anime?q=${searchParams}`;
+  search = search.slice(3);
+  console.log(search);
+
+  const url = `https://api.jikan.moe/v4/anime`;
 
   const getData = async () => {
     await axios
-      .get(url)
+      .get(url, {
+        params: {
+          q: search,
+          limit: 24,
+        },
+      })
       .then((res) => {
         console.log(res);
+
         setAnimes(res.data.data);
       })
       .catch((err) => console.log(err));
@@ -23,12 +31,12 @@ const LastUpdate = () => {
 
   useEffect(() => {
     getData();
-  }, [searchParams,url]);
+  }, [search, url]);
 
   return (
     <div className={styles.LastUpdate__container}>
       <div className={styles.container__title}>
-        <h2>Resultados para: {searchParams}</h2>
+        <h2>Resultados para: {search}</h2>
       </div>
       <div className={styles.container__cards}>
         {animes &&
@@ -42,4 +50,4 @@ const LastUpdate = () => {
   );
 };
 
-export default LastUpdate;
+export default AnimeSearch;

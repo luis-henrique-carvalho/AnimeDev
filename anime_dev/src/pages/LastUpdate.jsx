@@ -45,6 +45,8 @@ const LastUpdate = () => {
           animes.map((anime, id) => (
             <>{id < viewMore ? <AnimeCard key={id} anime={anime} /> : <></>}</>
           ))}
+      </div>
+      <div className={styles.LastUpdate__button}>
         <button onClick={handleButton}>{button}</button>
       </div>
     </div>
