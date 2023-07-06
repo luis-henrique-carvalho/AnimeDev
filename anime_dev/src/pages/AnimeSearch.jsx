@@ -3,10 +3,12 @@ import styles from "./LastUpdate.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { Util } from "../hooks/Util";
 
 const AnimeSearch = () => {
   const [animes, setAnimes] = useState([]);
   let { search } = useLocation();
+  const {} = Util(AnimeSearch)
 
   search = search.slice(3);
   console.log(search);

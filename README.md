@@ -1,2 +1,0 @@
-# AnimeDev
- Site de animes

@@ -1,39 +1,19 @@
 import AnimeCard from "../components/AnimeCard";
 import styles from "./LastUpdate.module.css";
-import axios from "axios";
+import { Util } from "../hooks/Util";
 import { useEffect, useState } from "react";
-const url = `https://api.jikan.moe/v4/top/anime`;
 
 const LastUpdate = () => {
   const [animes, setAnimes] = useState([]);
   const [viewMore, setViewMore] = useState(12);
   const [button, setButton] = useState("Ver Mais");
-
-  const handleButton = () => {
-    if (viewMore === 24) {
-      setViewMore(12);
-      setButton("Ver menos");
-    } else {
-      setViewMore(24);
-      setButton("Ver menos");
-    }
-  };
-
-  const getData = async () => {
-    await axios
-      .get(url)
-      .then((res) => {
-        console.log(res);
-        setAnimes(res.data.data);
-      })
-      .catch((err) => console.log(err));
-  };
+  const { getTopAnimes } = Util();
 
   useEffect(() => {
-    getData();
+    getTopAnimes(5).then((res) => {
+      setAnimes(res.data);
+    });
   }, []);
-
-  console.log(animes);
 
   return (
     <div className={styles.LastUpdate__container}>
@@ -46,9 +26,9 @@ const LastUpdate = () => {
             <>{id < viewMore ? <AnimeCard key={id} anime={anime} /> : <></>}</>
           ))}
       </div>
-      <div className={styles.LastUpdate__button}>
+      {/* <div className={styles.LastUpdate__button}>
         <button onClick={handleButton}>{button}</button>
-      </div>
+      </div> */}
     </div>
   );
 };
